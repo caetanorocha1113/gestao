@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Usuario {
+  id           Int         @id @default(autoincrement())
+  nome         String
+  cpf_hash     String      @unique
+  email_cripto String      @unique
+  senha_hash   String
+  perfil       String
+  projetos     Projeto[]
+  tarefas      Tarefa[]
+  historicos   Historico[]
+}
+
+model Projeto {
+  id         Int      @id @default(autoincrement())
+  id_usuario Int
+  nome       String
+  status     String
+  usuario    Usuario  @relation(fields: [id_usuario], references: [id])
+  tarefas    Tarefa[]
+}
+
+model Tarefa {
+  id             Int         @id @default(autoincrement())
+  id_projeto     Int
+  id_responsavel Int
+  titulo         String
+  status         String
+  data_hora      DateTime
+  projeto        Projeto     @relation(fields: [id_projeto], references: [id])
+  responsavel    Usuario     @relation(fields: [id_responsavel], references: [id])
+  historicos     Historico[]
+}
+
+model Historico {
+  id         Int      @id @default(autoincrement())
+  id_tarefa  Int?
+  id_usuario Int
+  acao       String
+  data_hora  DateTime @default(now())
+  tarefa     Tarefa?  @relation(fields: [id_tarefa], references: [id], onDelete: SetNull)
+  usuario    Usuario  @relation(fields: [id_usuario], references: [id])
+}

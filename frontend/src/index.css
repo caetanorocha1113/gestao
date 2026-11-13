@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f6f5;
+  color: #222;
+}
+
+h1 { margin: 0 0 4px; }
+h2 { margin-top: 0; }
+main { max-width: 1150px; margin: 0 auto; padding: 20px; }
+
+.topo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 20px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+.topo nav { flex: 1; display: flex; gap: 6px; }
+.topo nav button { background: none; color: #222; }
+.topo nav button.ativo { background: #0f766e; color: #fff; }
+.topo .sair { background: #dc2626; }
+
+.caixa {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 14px 0;
+}
+
+label { display: block; margin: 10px 0 4px; font-size: 14px; font-weight: bold; }
+input, select { width: 100%; padding: 8px; border: 1px solid #bbb; border-radius: 4px; box-sizing: border-box; }
+
+button {
+  background: #0f766e;
+  color: #fff;
+  border: 0;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover { opacity: 0.85; }
+.cinza { background: #6b7280; }
+.vermelho { background: #dc2626; }
+td button { margin-right: 6px; }
+
+.linha { display: flex; gap: 8px; margin-top: 14px; }
+.caixa.linha { margin-top: 14px; }
+
+.erro, .ok { padding: 10px; border-radius: 4px; margin: 10px 0; }
+.erro { background: #fee2e2; color: #991b1b; }
+.ok { background: #dcfce7; color: #166534; }
+
+table { width: 100%; background: #fff; border-collapse: collapse; }
+th, td { text-align: left; padding: 10px; border-bottom: 1px solid #ddd; }
+th { background: #e5e7eb; }
+
+.cartoes { display: flex; gap: 14px; flex-wrap: wrap; }
+.cartao { flex: 1; min-width: 220px; cursor: pointer; }
+.cartao:hover { background: #ecfdf5; }
+.cartao p { margin: 0; color: #555; }
+.numero { font-size: 32px; font-weight: bold; color: #0f766e; }
+
+.login { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+.login .caixa { width: 340px; }
+.login button { width: 100%; margin-top: 16px; }
